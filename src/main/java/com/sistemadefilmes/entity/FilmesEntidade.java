@@ -2,7 +2,7 @@ package com.sistemadefilmes.entity;
 
 public class FilmesEntidade {
     
-    private Long id;
+    private int id;
     private String nome;
     private String genero;
     private int anoLancamento;
@@ -10,7 +10,8 @@ public class FilmesEntidade {
     private double nota; 
 
 
-    public FilmesEntidade(String nome, String genero, int anoLancamento, String diretor, double nota) {
+    public FilmesEntidade(int id, String nome, String genero, int anoLancamento, String diretor, double nota) {
+        this.id = id;
         this.nome = nome;
         this.genero = genero;
         this.anoLancamento = anoLancamento;
@@ -18,11 +19,11 @@ public class FilmesEntidade {
         this.nota = nota;
     }
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 

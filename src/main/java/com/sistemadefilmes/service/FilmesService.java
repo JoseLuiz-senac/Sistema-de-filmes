@@ -1,10 +1,12 @@
 package com.sistemadefilmes.service;
 
-import com.sistemadefilmes.entity.FilmesEntidade;
-import com.sistemadefilmes.repository.FilmesRepository;
 import java.util.List;
 import java.util.Optional;
+
 import org.springframework.stereotype.Service;
+
+import com.sistemadefilmes.entity.FilmesEntidade;
+import com.sistemadefilmes.repository.FilmesRepository;
 
 @Service
 public class FilmesService {
@@ -21,12 +23,12 @@ public class FilmesService {
     }
 
     //Metodo de listar por id
-    public Optional<FilmesEntidade> ListarPorId(Long id) {
+    public Optional<FilmesEntidade> ListarPorId(int id) {
         return FilmesRepository.findById(id);
     }
 
     //Metodo de listar por nome
-    public list<FilmesEntidade> ListarporNome(String nome) {
+    public List<FilmesEntidade> ListarporNome(String nome) {
         return FilmesRepository.findByNome(nome);
     }
     
@@ -39,14 +41,14 @@ public class FilmesService {
     //Metodo de atualizar filme
     public FilmesEntidade AtualizarFilme(FilmesEntidade filme) {
 
-        if (filme.getnome().isBlank()){
+        if (filme.getNome().isBlank()){
             throw new IllegalArgumentException("O nome do filme não encontrado ou não pode ser vazio.");
         }
         return FilmesRepository.save(filme);
     }
 
     //Metodo de deletar filme
-    public boolean ExcluirFilme(long id) {
+    public boolean ExcluirFilme(int id) {
         return FilmesRepository.deleteById(id);
     }
 
