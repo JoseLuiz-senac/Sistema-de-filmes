@@ -8,46 +8,46 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class FilmesService {
-    private final FilmesRepository filmesRepository;
-
+    private final FilmesRepository FilmesRepository;
+    
     //Metodo construtor
     public FilmesService(FilmesRepository repo) {
-        this.filmesRepository = repo;
+        this.FilmesRepository = repo;
     }
 
     //Metodo de listar todos
-    public list<Filmes> ListarTodos() {
-        return filmesRepository.findAll();
+    public List<FilmesEntidade> ListarTodos() {
+        return FilmesRepository.findAll();
     }
 
     //Metodo de listar por id
-    public Optional<Filmes> ListarPorId(Long id) {
-        return filmesRepository.findById(id);
+    public Optional<FilmesEntidade> ListarPorId(Long id) {
+        return FilmesRepository.findById(id);
     }
 
     //Metodo de listar por nome
-    public list<Filmes> ListarporNome(String nome) {
-        return filmesRepository.findByNome(nome);
+    public list<FilmesEntidade> ListarporNome(String nome) {
+        return FilmesRepository.findByNome(nome);
     }
     
 
     //Metodo de adicionar filme
-    public Filmes AdicionarFilme(Filmes filme) {
-        return filmesRepository.save(filme);
+    public FilmesEntidade AdicionarFilme(FilmesEntidade filme) {
+        return FilmesRepository.save(filme);
     }
 
     //Metodo de atualizar filme
-    public Filmes AtualizarFilme(Filmes filme) {
+    public FilmesEntidade AtualizarFilme(FilmesEntidade filme) {
 
         if (filme.getnome().isBlank()){
             throw new IllegalArgumentException("O nome do filme não encontrado ou não pode ser vazio.");
         }
-        return filmesRepository.save(filme);
+        return FilmesRepository.save(filme);
     }
 
     //Metodo de deletar filme
     public boolean ExcluirFilme(long id) {
-        return filmesRepository.deleteById(id);
+        return FilmesRepository.deleteById(id);
     }
 
 }
