@@ -29,7 +29,7 @@ public class FilmesService {
 
     //Metodo de listar por nome
     public List<FilmesEntidade> ListarporNome(String nome) {
-        return FilmesRepository.findByNome(nome);
+        return FilmesRepository.findByNameContaining(nome);
     }
     
 

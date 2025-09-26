@@ -35,7 +35,7 @@ public class FilmesRepository {
     }
 
     //Buscar filme pelo nome
-    public List<FilmesEntidade> findByNome(String nome) {
+    public List<FilmesEntidade> findByNameContaining(String nome) {
         List<FilmesEntidade> resultados = new ArrayList<>();
         for (FilmesEntidade filme : baseFilmes) {
             if (filme.getNome().equalsIgnoreCase(nome)) {
@@ -52,7 +52,7 @@ public class FilmesRepository {
     }
 
     //Deletar um filme pelo ID
-    public boolean deleteById(int id) {
+    public boolean deleteById(long id) {
         return baseFilmes.removeIf(filme -> filme.getId() == id);
     }
 }

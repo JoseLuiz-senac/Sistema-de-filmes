@@ -5,7 +5,10 @@ import java.util.List;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.sistemadefilmes.entity.FilmesEntidade;
@@ -33,27 +36,29 @@ public class FilmesController {
     }
 
     @PostMapping("/filme")
-    public FilmesEntidade adicionarFilme(FilmesEntidade filme) {
+    public FilmesEntidade adicionarFilme(@RequestBody FilmesEntidade filme) {
         return filmesServico.AdicionarFilme(filme);
     }
 
     @GetMapping("/filme/{id}")
-    public FilmesEntidade listarPorId(int id) {
+    public FilmesEntidade listarPorId( @PathVariable int id) {
         return filmesServico.ListarPorId(id).orElse(null);
     }
 
     @GetMapping("/filme/nome/{nome}")
-    public List<FilmesEntidade> listarPorNome(String nome) {
+    public List<FilmesEntidade> listarPorNome(@PathVariable String nome) {
         return filmesServico.ListarporNome(nome);
     }
 
-    @PostMapping("/filme/atualizar")
-    public FilmesEntidade atualizarFilme(FilmesEntidade filme) {    
+    @PutMapping("/filme/atualizar")
+    public FilmesEntidade atualizarFilme(@RequestBody FilmesEntidade filme) {    
         return filmesServico.AtualizarFilme(filme);
     }
 
     @DeleteMapping("/filme/{id}")
-    public boolean excluirFilme(int id) {
-        return filmesServico.ExcluirFilme(id);
+    public String excluirFilme(@PathVariable int id) {
+        boolean filmeExcluido = filmesServico.ExcluirFilme(id);
+
+        return filmeExcluido ? "Filme excluído com sucesso." : "Filme não encontrado.";
     }
 }
