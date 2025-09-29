@@ -1,7 +1,7 @@
 
 # Locadora do Nathazinho
 
-Esse projeto visara a criação de um site para a busca de filmes, apresentando seu título,gênero,ano de lançamento e avaliação de críticos renomados, visando cinéfilos curiosos ou pessoas entendiadas atrás de um filme para assistir.
+Esse projeto visara a criação de um site para a busca de filmes, apresentando seu título,gênero,ano de lançamento,curiosidades e avaliação de críticos renomados, visando cinéfilos curiosos ou pessoas entendiadas atrás de um filme para assistir.
 
  # Funcionalidade
 
@@ -9,6 +9,7 @@ Esse projeto visara a criação de um site para a busca de filmes, apresentando 
  - Sistema de busca de filme por gênero
  - Sistema de busca de filme por ano de lançamento
  - Sistema de busca de filme por nota
+ - Sistema que mostrara curiosidades
  - Sistema de avaliação do usuário
 
  # Tecnologia e Programas
